@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+D:\L3 MIASHS\IA\projetIntArt\fichiers\projet_IA\.metadata\.plugins\org.eclipse.jdt.core
