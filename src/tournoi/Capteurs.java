@@ -2,10 +2,6 @@ package tournoi;
 
 import lejos.robotics.SampleProvider;
 import lejos.robotics.filter.MeanFilter;
-
-import lejos.hardware.motor.EV3LargeRegulatedMotor;
-import lejos.hardware.motor.EV3MediumRegulatedMotor;
-import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.Port;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -14,9 +10,9 @@ import lejos.hardware.sensor.EV3UltrasonicSensor;
 
 public class Capteurs {
 	
-	private static EV3TouchSensor touch;
-	private static EV3UltrasonicSensor ultrason;
-	private static EV3ColorSensor color;
+	protected static EV3TouchSensor touch;
+	protected static EV3UltrasonicSensor ultrason;
+	protected static EV3ColorSensor color;
 	private static float[] bleu = {0.024506f, 0.03412f, 0.0586f};
 	private static float[] rouge = {0.14334f, 0.0292f, 0.02098f};
 	private static float[] vert = {0.0604f, 0.10274f, 0.0357f};
@@ -45,13 +41,13 @@ public class Capteurs {
 		return sample[0];
 	}
 	
-	public double scalaire(float[] v1, float[] v2) {
+	public static double scalaire(float[] v1, float[] v2) {
 		return Math.sqrt (Math.pow(v1[0] - v2[0], 2.0) +
 				Math.pow(v1[1] - v2[1], 2.0) +
 				Math.pow(v1[2] - v2[2], 2.0));
 	}
 	
-	public String rvb() {
+	public static String rvb() {
 		SampleProvider rvb = new MeanFilter(color.getRGBMode(), 1);
 		float[] sample = new float[3];
 		rvb.fetchSample(sample, 0);
